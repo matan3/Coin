@@ -29,6 +29,7 @@ public class Main extends AppCompatActivity {
                 startActivity(registrationIntent);
             }
         });
+        //8888888888888
 
         /*
         Button to go to LogIn
