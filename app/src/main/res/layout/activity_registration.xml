@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Registration">
+
+    <TextView
+        android:id="@+id/registrationTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="39dp"
+        android:text="Registration"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toTopOf="@+id/firstNameRegTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/phoneRegTextView"
+        android:layout_width="84dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="41dp"
+        android:text="Phone"
+        app:layout_constraintBottom_toTopOf="@+id/registrationSaveBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/phoneRegEditText"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/phoneRegEditText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailRegTextView" />
+
+    <TextView
+        android:id="@+id/PasswordRegTextView"
+        android:layout_width="84dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="27dp"
+        android:text="Password"
+        app:layout_constraintBottom_toTopOf="@+id/emailRegTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/passwordRegEditText"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/passwordRegEditText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lastNameRegTextView" />
+
+    <TextView
+        android:id="@+id/emailRegTextView"
+        android:layout_width="84dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="45dp"
+        android:text="Email"
+        app:layout_constraintBottom_toTopOf="@+id/phoneRegTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/emailRegEditText"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/emailRegEditText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/PasswordRegTextView" />
+
+    <TextView
+        android:id="@+id/lastNameRegTextView"
+        android:layout_width="84dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="36dp"
+        android:text="Last Name"
+        app:layout_constraintBottom_toTopOf="@+id/PasswordRegTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/lNameRegEditText"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/lNameRegEditText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/firstNameRegTextView" />
+
+    <TextView
+        android:id="@+id/firstNameRegTextView"
+        android:layout_width="84dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="33dp"
+        android:text="First Name"
+        app:layout_constraintBottom_toTopOf="@+id/lastNameRegTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/fNameRegEditText"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/fNameRegEditText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/registrationTextView" />
+
+    <EditText
+        android:id="@+id/fNameRegEditText"
+        android:layout_width="182dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="106dp"
+        android:layout_marginBottom="108dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        app:layout_constraintBottom_toBottomOf="@+id/PasswordRegTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/registrationTextView" />
+
+    <EditText
+        android:id="@+id/passwordRegEditText"
+        android:layout_width="200dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="54dp"
+        android:layout_marginBottom="55dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toBottomOf="@+id/emailRegEditText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/lNameRegEditText" />
+
+    <EditText
+        android:id="@+id/emailRegEditText"
+        android:layout_width="196dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="27dp"
+        android:layout_marginBottom="36dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toTopOf="@+id/phoneRegEditText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/PasswordRegTextView" />
+
+    <EditText
+        android:id="@+id/phoneRegEditText"
+        android:layout_width="196dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="41dp"
+        android:ems="10"
+        android:inputType="phone"
+        app:layout_constraintBottom_toTopOf="@+id/registrationSaveBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailRegTextView" />
+
+    <EditText
+        android:id="@+id/lNameRegEditText"
+        android:layout_width="190dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginBottom="26dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        app:layout_constraintBottom_toTopOf="@+id/PasswordRegTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fNameRegEditText" />
+
+    <Button
+        android:id="@+id/registrationSaveBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="43dp"
+        android:layout_marginLeft="43dp"
+        android:layout_marginBottom="51dp"
+        android:text="Save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/phoneRegEditText"
+        app:layout_constraintTop_toBottomOf="@+id/phoneRegTextView" />
+
+</android.support.constraint.ConstraintLayout>
