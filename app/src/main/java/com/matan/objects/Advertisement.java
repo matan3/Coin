@@ -1,6 +1,6 @@
 package com.matan.objects;
 
-import com.matan.coin.Main;
+import com.matan.login_and_signup.MainActivity;
 
 public class Advertisement {
 
@@ -11,7 +11,7 @@ public class Advertisement {
    Constructors
     */
     public Advertisement(String email, String source_Coin, String destination_Coin, String location, String amount) {
-        Advertisement_id=""+Main.Advertisement_key++;
+        Advertisement_id=""+MainActivity.Advertisement_key++;
         this.email = email;
         Source_Coin = source_Coin;
         Destination_Coin = destination_Coin;
@@ -20,7 +20,7 @@ public class Advertisement {
     }
 
     public Advertisement() {
-        Advertisement_id=""+Main.Advertisement_key++;
+        Advertisement_id=""+MainActivity.Advertisement_key++;
 
     }
 
