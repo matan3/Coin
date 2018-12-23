@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "199017431930",
+    "firebase_url": "https://cambio-id.firebaseio.com",
+    "project_id": "cambio-id",
+    "storage_bucket": "cambio-id.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:199017431930:android:158a822009e18fb4",
+        "android_client_info": {
+          "package_name": "com.matan.coin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "199017431930-9f26u0inb5rpq1jp6iipv1673bg9unlq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmoVIvkIyDsP0mAu_n0D92xSLJbsBErB4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

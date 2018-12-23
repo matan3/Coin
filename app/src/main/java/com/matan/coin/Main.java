@@ -25,12 +25,10 @@ public class Main extends AppCompatActivity {
         regitrationActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent registrationIntent = new Intent (Main.this,Registration.class);
+                Intent registrationIntent = new Intent (Main.this,HomeScreen.class);
                 startActivity(registrationIntent);
             }
         });
-        //8888888888888
-        //666666
 
         /*
         Button to go to LogIn
@@ -51,7 +49,7 @@ public class Main extends AppCompatActivity {
         guestActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent guestIntent = new Intent (Main.this,Boardnew2.class);
+                Intent guestIntent = new Intent (Main.this,Board.class);
                 startActivity(guestIntent);
             }
         });

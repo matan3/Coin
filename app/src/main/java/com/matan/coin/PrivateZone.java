@@ -6,43 +6,16 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Spinner;
 import android.widget.Toast;
 
-public class Boardnew2 extends AppCompatActivity {
+public class PrivateZone extends AppCompatActivity {
 
     ListView listView ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_boardnew2);
-
-        /*
-        Drop down list of cities
-         */
-
-        //get the spinner from the xml.
-        Spinner dropdownCities = findViewById(R.id.spinner1);
-        //create a list of items for the spinner.
-        String[] itemsCities = new String[]{"1", "2", "three"};
-        //create an adapter to describe how the items are displayed
-        ArrayAdapter<String> adapterSpinnerCities = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, itemsCities);
-        //set the spinners adapter to the previously created one.
-        dropdownCities.setAdapter(adapterSpinnerCities);
-
-        /*
-        Drop down list of Coins
-         */
-
-        //get the spinner from the xml.
-        Spinner dropdownCoins = findViewById(R.id.spinner2);
-        //create a list of items for the spinner.
-        String[] itemsCoins = new String[]{"Shekel", "Dollar", "three"};
-        //create an adapter to describe how the items are displayed
-        ArrayAdapter<String> adapterSpinnerCoins = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, itemsCoins);
-        //set the spinners adapter to the previously created one.
-        dropdownCoins.setAdapter(adapterSpinnerCoins);
+        setContentView(R.layout.activity_private_zone);
 
         /*
         list of all the advertisement

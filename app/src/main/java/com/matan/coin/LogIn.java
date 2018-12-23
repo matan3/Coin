@@ -20,7 +20,7 @@ public class LogIn extends AppCompatActivity {
         guestActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent guestIntent = new Intent (LogIn.this,Boardnew2.class);
+                Intent guestIntent = new Intent (LogIn.this,Board.class);
                 startActivity(guestIntent);
             }
         });

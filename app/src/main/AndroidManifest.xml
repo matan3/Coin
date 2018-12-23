@@ -20,8 +20,8 @@
         <activity android:name=".MainLogIn" />
         <activity android:name=".LogIn" />
         <activity android:name=".Board" />
-        <activity android:name=".Boardnew" />
-        <activity android:name=".Boardnew2"></activity>
+        <activity android:name=".PrivateZone" />
+        <activity android:name=".HomeScreen"></activity>
     </application>
 
 </manifest>
