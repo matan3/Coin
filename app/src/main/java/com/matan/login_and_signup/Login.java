@@ -1,11 +1,13 @@
 package com.matan.login_and_signup;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.res.ColorStateList;
 import android.content.res.XmlResourceParser;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.InputType;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
@@ -22,12 +24,20 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.matan.coin.R;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class    Login extends Fragment implements View.OnClickListener {
+import io.reactivex.annotations.NonNull;
+
+public class Login extends Fragment implements View.OnClickListener {
     private static View view;
 
     private static EditText emailid, password;
@@ -37,6 +47,7 @@ public class    Login extends Fragment implements View.OnClickListener {
     private static LinearLayout loginLayout;
     private static Animation shakeAnimation;
     private static FragmentManager fragmentManager;
+    private FirebaseAuth mAuth;
 
     public Login() {
 
@@ -71,7 +82,7 @@ public class    Login extends Fragment implements View.OnClickListener {
         // Setting text selector over textviews
         @SuppressLint("ResourceType") XmlResourceParser xrp = getResources().getXml(R.drawable.text_selector);
         try {
-            ColorStateList csl = ColorStateList.createFromXml(getResources(),xrp);
+            ColorStateList csl = ColorStateList.createFromXml(getResources(), xrp);
             forgotPassword.setTextColor(csl);
             show_hide_password.setTextColor(csl);
             signUp.setTextColor(csl);
@@ -170,9 +181,35 @@ public class    Login extends Fragment implements View.OnClickListener {
             Toast.makeText(getActivity(), "Do Login.", Toast.LENGTH_SHORT)
                     .show();
 
+
+
+            mAuth = FirebaseAuth.getInstance();
+            LoginUser(getEmailId, getPassword);
+
             // ***********  GILAD --------- FireBase *******
         }
 
 
     }
+    private void LoginUser(String mail, final String password) {
+        mAuth.signInWithEmailAndPassword(mail, password).addOnCompleteListener((Activity) getContext(), new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    new CustomToast().Show_Toast(getActivity(), view,
+                            "good.");
+                } else {
+                    new CustomToast().Show_Toast(getActivity(), view,
+                            "no good");
+                }
+
+            }
+        });
+    }
+
 }
+
+
+
+
+

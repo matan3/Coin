@@ -1,6 +1,7 @@
 package com.matan.login_and_signup;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.res.ColorStateList;
 import android.content.res.XmlResourceParser;
 import android.support.annotation.NonNull;
@@ -37,10 +38,9 @@ public class SignUp extends  Fragment implements View.OnClickListener {
     private static Button signUpButton;
     private static CheckBox terms_conditions;
 
-    private DatabaseReference Db_Ref;
     private DatabaseReference M_Data;
-    FirebaseAuth mAuth;
-    User user;
+    private FirebaseAuth mAuth;
+    private User user;
 
     public SignUp() {
 
@@ -149,31 +149,34 @@ public class SignUp extends  Fragment implements View.OnClickListener {
         else {
             Toast.makeText(getActivity(), "Do SignUp.", Toast.LENGTH_SHORT)
                     .show();
-            //user = new User(getMobileNumber,getFullName,"dd",getPassword,getEmailId);
-            //try_to();
+
+            M_Data = FirebaseDatabase.getInstance().getReference("/users");
+            mAuth = FirebaseAuth.getInstance();
+
+            user = new User(getMobileNumber,getFullName,"dd",getPassword,getEmailId);
+            SignUpUser(getEmailId,getPassword);
             // ***********  GILAD --------- FireBase *******
         }
 
     }
 
-    /*private  void try_to() {
-        M_Data = FirebaseDatabase.getInstance().getReference();
-        mAuth = FirebaseAuth.getInstance();
 
-        mAuth.createUserWithEmailAndPassword(user.getEmail(), user.getPassword())
-                .addOnCompleteListener((Executor) this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            new CustomToast().Show_Toast(getActivity(), view,
-                                    "Good");
-                        }else{
-                            new CustomToast().Show_Toast(getActivity(), view,
-                                    "Bad");
-                        }
-                    }
-                });
-    }*/
+    private void SignUpUser(String mail, final String password) {
+        mAuth.createUserWithEmailAndPassword(mail, password).addOnCompleteListener((Activity) getContext(), new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    M_Data.child(user.getEmail()).setValue(user);
+                    new CustomToast().Show_Toast(getActivity(), view,
+                            "good.");
+                } else {
+                    new CustomToast().Show_Toast(getActivity(), view,
+                            "no good");
+                }
+
+            }
+        });
+    }
 
 }
 
