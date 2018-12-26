@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
         <activity android:name="com.matan.chat.MainChat" />
-        <activity android:name="com.matan.private_zone.AddAdvertisement"></activity>
+        <activity android:name="com.matan.private_zone.AddAdvertisement" />
     </application>
 
 </manifest>
