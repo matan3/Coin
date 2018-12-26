@@ -14,7 +14,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".Board" />
-        <activity android:name=".PrivateZone" />
+        <activity android:name="com.matan.private_zone.PrivateZone" />
         <activity android:name="com.matan.login_and_signup.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,7 +22,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.matan.Chat.MainChat"></activity>
+        <activity android:name="com.matan.Chat.MainChat" />
+        <activity android:name="com.matan.private_zone.AddAdvertisement"></activity>
     </application>
 
 </manifest>

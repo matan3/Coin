@@ -11,18 +11,11 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.matan.Chat.MainChat;
 import com.matan.login_and_signup.MainActivity;
-import com.matan.objects.User;
-
-import javax.annotation.Nonnull;
-
-import io.reactivex.annotations.NonNull;
+import com.matan.private_zone.PrivateZone;
 
 public class Board extends AppCompatActivity {
     private FirebaseDatabase mDatabase;

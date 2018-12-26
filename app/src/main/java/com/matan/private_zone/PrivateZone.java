@@ -1,4 +1,4 @@
-package com.matan.coin;
+package com.matan.private_zone;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.matan.coin.Board;
+import com.matan.coin.R;
 import com.matan.login_and_signup.MainActivity;
 
 import io.paperdb.Paper;
@@ -72,6 +74,20 @@ public class PrivateZone extends AppCompatActivity {
                         .show();
             }
         });
+
+
+
+         /*
+        Button to go to AddAdvertisement
+         */
+        final Button privateZoneActivity = (Button)findViewById(R.id.privateZoneBtn);
+        privateZoneActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent privateZoneIntent = new Intent (PrivateZone.this,AddAdvertisement.class);
+                startActivity(privateZoneIntent);
+            }
+        });
     }
     private void logOut(){
         logoutButton = (Button) findViewById(R.id.logoutBtn);
@@ -88,4 +104,6 @@ public class PrivateZone extends AppCompatActivity {
             }
         });
     }
+
+
 }

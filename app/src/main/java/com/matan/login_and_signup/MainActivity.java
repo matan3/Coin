@@ -19,7 +19,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.matan.coin.Board;
-import com.matan.coin.PrivateZone;
 import com.matan.coin.R;
 
 import java.util.ArrayList;
