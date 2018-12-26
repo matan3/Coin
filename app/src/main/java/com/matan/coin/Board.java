@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.matan.Chat.MainChat;
+import com.matan.chat.MainChat;
 import com.matan.login_and_signup.MainActivity;
 import com.matan.private_zone.PrivateZone;
 

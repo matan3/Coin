@@ -22,7 +22,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.matan.Chat.MainChat" />
+        <activity android:name="com.matan.chat.MainChat" />
         <activity android:name="com.matan.private_zone.AddAdvertisement"></activity>
     </application>
 
