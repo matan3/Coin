@@ -11,7 +11,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="23dp"
-        android:layout_marginRight="23dp"
         android:layout_marginBottom="49dp"
         android:background="@android:drawable/btn_dropdown"
         android:spinnerMode="dropdown"
@@ -25,7 +24,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="61dp"
-        android:layout_marginRight="61dp"
         android:background="@android:drawable/btn_dropdown"
         android:spinnerMode="dropdown"
         app:layout_constraintEnd_toEndOf="parent"
@@ -37,9 +35,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="6dp"
-        android:layout_marginLeft="6dp"
         android:layout_marginEnd="6dp"
-        android:layout_marginRight="6dp"
         android:layout_marginBottom="57dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -48,10 +44,9 @@
 
     <Button
         android:id="@+id/privateZoneBtn"
-        android:layout_width="148dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
         android:text="Private Zone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

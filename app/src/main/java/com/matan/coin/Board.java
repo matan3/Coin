@@ -11,15 +11,28 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-public class Board extends AppCompatActivity {
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.matan.Chat.MainChat;
+import com.matan.login_and_signup.MainActivity;
+import com.matan.objects.User;
 
+import javax.annotation.Nonnull;
+
+import io.reactivex.annotations.NonNull;
+
+public class Board extends AppCompatActivity {
+    private FirebaseDatabase mDatabase;
+    private DatabaseReference dbRef;
     ListView listView ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_board);
-
         /*
         Drop down list of cities
          */
@@ -72,8 +85,16 @@ public class Board extends AppCompatActivity {
                 "Android Example List View"
         };
 
+
+  /*      String[] arr=new String[MainActivity.a.size()];
+        for(int i=0;i<arr.length;i++)
+            arr[i]=MainActivity.a.get(i).toString();
+*/
+        Toast.makeText(getApplicationContext(),
+                ""+MainActivity.a.size() , Toast.LENGTH_LONG)
+                .show();
         ArrayAdapter<String> adapterlistView = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, android.R.id.text1, values);
+                android.R.layout.simple_list_item_1, android.R.id.text1, MainActivity.a);
 
         // Assign adapter to ListView
         listView.setAdapter(adapterlistView);
@@ -82,19 +103,23 @@ public class Board extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // ListView Clicked item index
+
+                Intent intent = new Intent (Board.this, MainChat.class);
+                startActivity(intent);
+
+                /*// ListView Clicked item index
                 int itemPosition = position;
                 // ListView Clicked item value
                 String  itemValue = (String) listView.getItemAtPosition(position);
                 // Show Alert
                 Toast.makeText(getApplicationContext(),
                         "Position :"+itemPosition+"  ListItem : " +itemValue , Toast.LENGTH_LONG)
-                        .show();
+                        .show();*/
             }
         });
 
          /*
-        Button to go to Regitration
+        Button to go to PrivateZone
          */
         final Button privateZoneActivity = (Button)findViewById(R.id.privateZoneBtn);
         privateZoneActivity.setOnClickListener(new View.OnClickListener() {
@@ -105,4 +130,28 @@ public class Board extends AppCompatActivity {
             }
         });
     }
+   /* private  void read(){
+        Toast.makeText(getApplicationContext(),
+               "read" , Toast.LENGTH_LONG)
+                .show();
+        mDatabase = FirebaseDatabase.getInstance();
+        dbRef = mDatabase.getReference("/user");
+        dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                for (DataSnapshot datas : snapshot.getChildren()) {
+                    MainActivity.a.add(datas.toString());
+
+
+                }
+                // MainActivity.a.add((User)snapshot.getValue().);
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+
+        });
+    }*/
 }

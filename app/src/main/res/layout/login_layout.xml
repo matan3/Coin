@@ -74,6 +74,16 @@
                 android:textColor="@color/white"
                 android:textSize="14sp" />
 
+            <CheckBox
+                android:id="@+id/remember_me"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Remember me"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+
             <TextView
                 android:id="@+id/forgot_password"
                 android:layout_width="wrap_content"

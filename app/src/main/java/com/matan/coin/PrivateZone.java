@@ -1,15 +1,22 @@
 package com.matan.coin;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.matan.login_and_signup.MainActivity;
+
+import io.paperdb.Paper;
+
 public class PrivateZone extends AppCompatActivity {
 
+    private static Button logoutButton;
     ListView listView ;
 
     @Override
@@ -17,6 +24,8 @@ public class PrivateZone extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_private_zone);
 
+        // when user log out
+        logOut();
         /*
         list of all the advertisement
          */
@@ -61,6 +70,21 @@ public class PrivateZone extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),
                         "Position :"+itemPosition+"  ListItem : " +itemValue , Toast.LENGTH_LONG)
                         .show();
+            }
+        });
+    }
+    private void logOut(){
+        logoutButton = (Button) findViewById(R.id.logoutBtn);
+
+
+        logoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Paper.book().destroy();
+
+                Intent intent = new Intent (PrivateZone.this, MainActivity.class);
+                startActivity(intent);
             }
         });
     }

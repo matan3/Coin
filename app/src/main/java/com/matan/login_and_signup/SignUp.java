@@ -38,7 +38,7 @@ public class SignUp extends  Fragment implements View.OnClickListener {
     private static Button signUpButton;
     private static CheckBox terms_conditions;
 
-    private DatabaseReference M_Data;
+    private DatabaseReference dbRef;
     private FirebaseAuth mAuth;
     private User user;
 
@@ -150,7 +150,7 @@ public class SignUp extends  Fragment implements View.OnClickListener {
             Toast.makeText(getActivity(), "Do SignUp.", Toast.LENGTH_SHORT)
                     .show();
 
-            M_Data = FirebaseDatabase.getInstance().getReference("/users");
+            dbRef = FirebaseDatabase.getInstance().getReference("/users");
             mAuth = FirebaseAuth.getInstance();
 
             user = new User(getMobileNumber,getFullName,"dd",getPassword,getEmailId);
@@ -166,7 +166,7 @@ public class SignUp extends  Fragment implements View.OnClickListener {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    M_Data.child(user.getEmail()).setValue(user);
+                    dbRef.child(user.getEmail()).setValue(user);
                     new CustomToast().Show_Toast(getActivity(), view,
                             "good.");
                 } else {

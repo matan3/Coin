@@ -2,6 +2,7 @@ package com.matan.login_and_signup;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.content.res.XmlResourceParser;
 import android.support.v4.app.Fragment;
@@ -30,11 +31,14 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.matan.coin.Board;
+import com.matan.coin.PrivateZone;
 import com.matan.coin.R;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import io.paperdb.Paper;
 import io.reactivex.annotations.NonNull;
 
 public class Login extends Fragment implements View.OnClickListener {
@@ -43,7 +47,7 @@ public class Login extends Fragment implements View.OnClickListener {
     private static EditText emailid, password;
     private static Button loginButton;
     private static TextView forgotPassword, signUp;
-    private static CheckBox show_hide_password;
+    private static CheckBox show_hide_password, remember_me;
     private static LinearLayout loginLayout;
     private static Animation shakeAnimation;
     private static FragmentManager fragmentManager;
@@ -73,6 +77,8 @@ public class Login extends Fragment implements View.OnClickListener {
         signUp = (TextView) view.findViewById(R.id.createAccount);
         show_hide_password = (CheckBox) view
                 .findViewById(R.id.show_hide_password);
+        remember_me = (CheckBox) view
+                .findViewById(R.id.remember_me);
         loginLayout = (LinearLayout) view.findViewById(R.id.login_layout);
 
         // Load ShakeAnimation
@@ -191,16 +197,27 @@ public class Login extends Fragment implements View.OnClickListener {
 
 
     }
+
     private void LoginUser(String mail, final String password) {
+
+        //if remember me is checked then write email and password to firebase library
+        if(remember_me.isChecked()){
+            Paper.book().write(Utils.UserEmailKey , mail);
+            Paper.book().write(Utils.UserPasswordKey ,password);
+        }
+
         mAuth.signInWithEmailAndPassword(mail, password).addOnCompleteListener((Activity) getContext(), new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     new CustomToast().Show_Toast(getActivity(), view,
                             "good.");
+                    Intent intent=new Intent(getContext(),Board.class);
+                    startActivity(intent);
                 } else {
                     new CustomToast().Show_Toast(getActivity(), view,
                             "no good");
+                    Paper.book().destroy();
                 }
 
             }
